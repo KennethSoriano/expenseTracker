@@ -3,13 +3,46 @@ import { View } from "react-native";
 import ExpensesList from "./ExpensesList";
 import ExpensesSummary from "./ExpensesSummary";
 
-function ExpensesOutput({expenses}) {
+const DUMMY_EXPENSES = [
+    {
+        id: 'e1',
+        description: 'A pair of shoes',
+        amount: 59.99,
+        date: new Date('2021-12-19')
+    },
+    {
+        id: 'e2',
+        description: 'A pair of trouserss',
+        amount: 89.99,
+        date: new Date('2021-1-05')
+    },
+    {
+        id: 'e3',
+        description: 'bananas',
+        amount: 9.99,
+        date: new Date('2021-2-9')
+    },
+    {
+        id: 'e4',
+        description: 'book',
+        amount: 8.99,
+        date: new Date('2021-9-15')
+    },
+    {
+        id: 'e5',
+        description: 'Another book',
+        amount: 18.99,
+        date: new Date('2021-6-10')
+    },
+]
+
+function ExpensesOutput({ expenses, expensesPeriod }) {
     return (
         <View>
-            <ExpensesSummary />
+            <ExpensesSummary expenses={DUMMY_EXPENSES} periodName={expensesPeriod} />
             <ExpensesList />
         </View>
-    )
+    );
 }
 
 export default ExpensesOutput;
