@@ -18,6 +18,7 @@ const BottomTabs = createBottomTabNavigator();
 function ExpensesOverview() {
   return (
     <>
+    <StatusBar style='light' />
       <ExpensesContextProvider>
         <BottomTabs.Navigator 
           screenOptions={({ navigation }) => ({
