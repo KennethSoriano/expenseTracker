@@ -1,11 +1,12 @@
 import { useContext, useLayoutEffect } from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet,  View } from "react-native";
 import ExpenseForm from "../components/ManageExpense/ExpenseForm";
 
 import IconButton from "../components/UI/IconButton";
 
 import { GlobalStyles } from "../constants/styles";
 import { ExpensesContext } from "../store/expenses-context";
+import { storeExpense } from "../util/http";
 
 function ManageExpense({route, navigation}) {
     const expenseCtx = useContext(ExpensesContext);
@@ -34,6 +35,7 @@ function ManageExpense({route, navigation}) {
         if (isEditing) {
             expenseCtx.updateExpense(editedExpenseId, expenseData);
         } else {
+            storeExpense(expenseData);
             expenseCtx.addExpense(expenseData);
         }
         navigation.goBack();
