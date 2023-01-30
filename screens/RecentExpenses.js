@@ -7,12 +7,11 @@ import { fetchExpenses } from "../util/http";
 function RecentExpenses() {
     const expensesCtx = useContext(ExpensesContext);
 
-    const [fetchedExpenses, setFetchedExpenses] = useState([]);
 
     useEffect(() => {
         async function getExpenses() {
             const expenses = await fetchExpenses();
-            expensesCtx.setExpenses(expenses);
+            expensesCtx.setExpenses(expenses)
         }
 
         getExpenses();
